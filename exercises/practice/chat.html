@@ -13,25 +13,28 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
+// Chat message Component
       function ChatMessages({message, sender}){
         return(
-          <div style={{backgroundColor: 'green'}}>
-           { sender === "user" && ''}
-           { sender === "admin" && <img src="person.jpg" width="50" />}
-           {message}
+          <div>
+              { sender === "user" && ''}
+              { sender === "admin" && <img src="person.jpg" width="50" />}
+              {message}
           </div>
         )
       }
 
+// Chat input Component
       function ChatInput(){
         return(
-          <div style={{backgroundColor: 'blue', height: '40px', width: '100%'}}>
-            <input style={{width: '70%', height: '80%'}} placeholder="Type a message" size="30" />
+          <div>
+            <input placeholder="Type a message" size="30" />
             <button><img src="send.png" width="10" /></button>
           </div>
         )
       }
 
+// Chat Component
       function Chat(){
         const chatMessages = [
           { message: 'hello Chatbot', sender: 'user', id: '1' }, 
@@ -58,11 +61,12 @@
         )
       }
 
+// App Component
       function App(){
         return(
-          <div style={{backgroundColor: 'red', width: '300px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+          <>
            <Chat />
-          </div>
+          </>
         ) 
       }
 
