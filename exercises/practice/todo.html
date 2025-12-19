@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="todoContainer"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function Todo(){
+        
+        function displayTodo(event){
+          const contents = event.target.value;
+        }
+
+        return(
+          <div>
+            <p>To-Do List</p>
+            <input onChange={displayTodo} placeholder="Add a new task" size="30" />
+            <button>Add</button>
+          </div> 
+        )
+      }
+
+      function List({message}){
+        return(
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+            <input type="checkbox" />
+            <p>{message}</p>
+            <button>Delete</button>
+          </div>
+        )
+      }
+
+      function TodoItems(){
+        // add data in React Use state
+
+        const [ todoItems, setTodoItems] = React.useState([{
+            message: 'Learn React',
+            id: 'id1'
+          }]);
+
+
+          function renderTodo(){
+            setTodoItems([
+              ...todoItems,
+              {
+                message: 'hello',
+                id: 'id2'
+              }
+            ])
+          }
+
+          return(
+          <>
+          <button onClick={renderTodo}>Send Todo</button>
+            {todoItems.map((todoItem)=>{
+                return(
+                  <List 
+                    message={todoItem.message}
+                    key={todoItem.id}
+                  />
+                )
+              })}
+          </>
+        )
+  
+      }
+
+    function App(){
+        return(
+          <div style={{backgroundColor: 'green', 
+            maxWidth: '300px', display: 'flex', 
+            flexDirection: 'column'}}>
+              <Todo />
+              <TodoItems />
+          </div>
+        )
+      }
+     
+
+     const container = document.querySelector('.todoContainer');
+     ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
