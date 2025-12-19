@@ -13,10 +13,31 @@
     <script type="text/babel">
 
       // Input Component
-      function ChatInput(){
+      function ChatInput({ chatMessages, setChatMessage}){
+        const [ inputText, setInputText ] = React.useState('');
+
+        function saveInputText(event){
+          setInputText(event.target.value);
+        }
+
+         // fetch chatmessage using the spread operator (...)
+          function sendMessage({chatMessages}){
+            setChatMessage([
+              ...chatMessages,
+              {
+                message: inputText,
+                sender: 'user',
+                id: crypto.randomUUID()
+              }
+            ])
+          }
+
+
         return(
           <>
-           <input placeholder="Send a message to Chatbot" size="30" />
+           <input placeholder="Send a message to Chatbot" size="30" 
+            onChange={saveInputText}
+           />
            <button>Send</button>
           </>
         )
@@ -35,74 +56,66 @@
 
       // Chat Messages Component
       function ChatMessages(){ 
-      // add chatmessage in use state and save usestate in an array variable
-       const array = React.useState([{
-            message: 'hello chatbot',
-            sender: 'user',
-            id: 'id1'
-          }, {
-            message: 'Hello! How can I help you?',
-            sender: 'robot',
-            id: 'id2'
-          }, {
-            message: 'what is todays date',
-            sender: 'user',
-            id: 'id3'
-          }, {
-            message: 'Today is December 15',
-            sender: 'robot',
-            id: 'id4'
-          }, {
-            message: 'how about flip coin',
-            sender: 'user',
-            id: 'id5'
-          }, {
-            message: 'Sure! You got tails',
-            sender: 'robot',
-            id: 'id6'
-          }, {
-            message: 'okay',
-            sender: 'user',
-            id: 'id7'
-          }]);
-       const chatMessages = array[0];
-       const setChatMessage = array[1];
-
-      // fetch chatmessage using the spread operator (...)
-      function sendMessage(){
-        setChatMessage([
-          ...chatMessages,
-          {
-            message: 'hello',
-            sender: 'user',
-            id: crypto.randomUUID()
-          }
-        ])
+          return(
+            <>
+            <button onClick={sendMessage}>Send Message</button>
+              {chatMessages.map((chatMessage)=>{
+                  return(
+                      <ChatMessage 
+                        message={chatMessage.message}
+                        sender={chatMessage.sender}
+                        key={chatMessage.id}
+                      />
+                    )
+              })}
+            </>
+          );
       }
-
-      return(
-        <>
-        <button onClick={sendMessage}>Send Message</button>
-          {chatMessages.map((chatMessage)=>{
-              return(
-                  <ChatMessage 
-                    message={chatMessage.message}
-                    sender={chatMessage.sender}
-                    key={chatMessage.id}
-                  />
-                )
-          })}
-        </>
-      );
-
-    }
 
       // Main App Component
       function App(){
+        // add chatmessage in use state and save usestate in an array variable
+        const [ chatMessages, setChatMessage] = React.useState([{
+              message: 'hello chatbot',
+              sender: 'user',
+              id: 'id1'
+            }, {
+              message: 'Hello! How can I help you?',
+              sender: 'robot',
+              id: 'id2'
+            }, {
+              message: 'what is todays date',
+              sender: 'user',
+              id: 'id3'
+            }, {
+              message: 'Today is December 15',
+              sender: 'robot',
+              id: 'id4'
+            }, {
+              message: 'how about flip coin',
+              sender: 'user',
+              id: 'id5'
+            }, {
+              message: 'Sure! You got tails',
+              sender: 'robot',
+              id: 'id6'
+            }, {
+              message: 'okay',
+              sender: 'user',
+              id: 'id7'
+            }]);
+        //  const chatMessages = array[0];
+        //  const setChatMessage = array[1];
+
         return(
            <>
-            <ChatInput />
-            <ChatMessages />
+            <ChatInput 
+              chatMessages={chatMessages}
+              setChatMessage={setChatMessage}
+            />
+            <ChatMessages 
+              chatMessages={chatMessages}
+            />
            </>
          );
       }
