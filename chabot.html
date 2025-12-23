@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script> 
+
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
@@ -24,19 +26,28 @@
 
         // fetch chatmessage using the spread operator (...)
         function sendMessage(){
-          setChatMessage([
+          const newMessage = [
             ...chatMessages,
             {
               message: inputText,
               sender: 'user',
               id: crypto.randomUUID()
             }
-          ])
+          ]
+          setChatMessage(newMessage)
 
-          setInputText('');
+          const response = Chatbot.getResponse(inputText);
+          setChatMessage([
+            ...newMessage,
+            {
+              message: response,
+              sender: 'robot',
+              id: crypto.randomUUID()
+            }
+          ]);
+
+          setInputText('');  
         }
-
-
 
         return(
           <>
