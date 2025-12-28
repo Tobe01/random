@@ -309,19 +309,17 @@
       // Chat Messages Component
       function ChatMessages({chatMessages}){ 
 
-        const chatMessagesRef = React.useRef(null);
+        const chatMessageRef = React.useRef(null);
 
         React.useEffect(() =>{
-          const chatMessagesElem = chatMessagesRef.current;
+          const chatMessageElem = chatMessageRef.current;
 
-          if(chatMessagesElem){
-            chatMessagesElem.scrollTop = chatMessagesElem.scrollHeight;
-          }
-        }, [chatMessages])
+          { chatMessageElem ? chatMessageElem.scrollTop = chatMessageElem.scrollHeight : ''}
+        });
 
           return(
            <div className="chat-message-container"
-            ref={chatMessagesRef}
+            ref={chatMessageRef}
            >
               {chatMessages.map((chatMessage)=>{
                   return(
