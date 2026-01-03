@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Chatbot } from 'supersimpledev'
+import dayjs from 'dayjs'
 import spinner from '../assets/loading-spinner.gif';
 
 // Input Component
@@ -11,6 +12,10 @@ function ChatInput({ chatMessages, setChatMessage}){
     setInputText(event.target.value);
   }
 
+  const time = dayjs().valueOf();
+
+  const timeLaps = dayjs(time).format('h:mma')
+
   // fetch chatmessage using the spread operator (...) 
   async function sendMessage(){
     const newMessage = [
@@ -18,6 +23,7 @@ function ChatInput({ chatMessages, setChatMessage}){
       {
         message: inputText,
         sender: 'user',
+        time: timeLaps,
         id: crypto.randomUUID()
       }
     ]
@@ -39,11 +45,19 @@ function ChatInput({ chatMessages, setChatMessage}){
         {
           message: response,
           sender: 'robot',
+          time: timeLaps,
           id: crypto.randomUUID()
         }
       ])
 
   };
+
+  // Clear messages
+   function clearMessage(){
+     setChatMessage([]);
+   };
+
+
 
   // function to check for the "Enter" key
   function enterKey(event){
@@ -76,6 +90,9 @@ function ChatInput({ chatMessages, setChatMessage}){
 
           onClick={sendMessage}
         >Send</button>
+        <button className="clearButton"
+          onClick={clearMessage}
+        >Clear</button>
       </div>
       <div className="moveText">
         <p

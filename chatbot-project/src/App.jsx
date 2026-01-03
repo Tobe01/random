@@ -10,7 +10,7 @@ import './index.css';
 // Main App Component
 function App(){
   // add chatmessage in use state and save usestate in an array variable
-  const [ chatMessages, setChatMessage] = useState([]);
+  const [ chatMessages, setChatMessage] = useState(JSON.parse(localStorage.getItem('messages')) || []);
 
   useEffect(() =>{
     Chatbot.addResponses({
@@ -20,6 +20,12 @@ function App(){
     });
 
   }, []);
+
+
+  // save chatmessages in Local storage
+  useEffect(() =>{
+    localStorage.setItem('messages', JSON.stringify(chatMessages));
+  });
 
   return(
       <div className="appContainer">
