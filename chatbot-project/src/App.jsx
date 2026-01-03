@@ -1,25 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Chatbot } from 'supersimpledev'
 import ChatMessages from './components/ChatMessages';
 import ChatInput from './components/ChatInput';
 import './components/ChatInput.css';
 import './App.css';
 import './index.css';
 
-// function MessagePrompt(){
-
-//   const [ prompt, setPrompt ] = useState('Welcome to the chatbot project! Send a message using the textbox below.')
-
-//   return(
-//     <div className="prompt">
-//       <p>{prompt}</p>
-//     </div> 
-//   )
-// }
 
 // Main App Component
 function App(){
   // add chatmessage in use state and save usestate in an array variable
   const [ chatMessages, setChatMessage] = useState([]);
+
+  useEffect(() =>{
+    Chatbot.addResponses({
+      club: "Chelsea Fc",
+      food: "Rice and Chicken",
+      price: '$250 USD'
+    });
+
+  }, []);
 
   return(
       <div className="appContainer">

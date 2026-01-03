@@ -4,7 +4,7 @@ import userProfileImage from '../assets/profile-1.jpg';
 import './ChatMessage.css';
 
 // Chat Component
-function ChatMessage({message, sender}){
+function ChatMessage({message, sender }){
   return(
     <div className={ sender === "user" ? "user-container" : "robot-container"}>
       {sender === "robot" && (<img className="chatImage" src={robotProfileImage} />)}
@@ -15,7 +15,5 @@ function ChatMessage({message, sender}){
     </div>
   )
 };
-
-console.log(userProfileImage);
 
 export default ChatMessage;

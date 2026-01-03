@@ -11,7 +11,6 @@ function ChatInput({ chatMessages, setChatMessage}){
     setInputText(event.target.value);
   }
 
-
   // fetch chatmessage using the spread operator (...) 
   async function sendMessage(){
     const newMessage = [
@@ -28,9 +27,9 @@ function ChatInput({ chatMessages, setChatMessage}){
     setChatMessage([
       ...newMessage,
       {
-      message: <img src={spinner} width="30" />,
+        message: <img src={spinner} width="30" />,
         sender: 'robot',
-        id: crypto.randomUUID() 
+        id: crypto.randomUUID()
       }
     ])
 
