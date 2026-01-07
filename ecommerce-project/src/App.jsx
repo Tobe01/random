@@ -13,6 +13,8 @@ function App() {
       <Route path="Checkout" element={<Checkout />} />
       <Route path="Orders" element={<Orders />} />
       <Route path="Tracking" element={<Tracking />} />
+
+      {/* route path to 404 error page */}
       <Route path="*" element={<ErrorPage />} />
      </Routes>
     </>
