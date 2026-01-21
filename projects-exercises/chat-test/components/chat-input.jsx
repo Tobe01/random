@@ -1,29 +1,33 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-export function ChatInput({messages, setMessages}) {
+export function ChatInput({ messages, setMessages }) {
+  const [inputData, setInputData] = useState();
 
-  const [ inputData, setInputData ] = useState();
-
-  function getData(event){
+  function getData(event) {
     setInputData(event.target.value);
   }
 
-  function renderData(){
+  function renderData() {
     setMessages([
       ...messages,
       {
         message: inputData,
-        sender: 'user'
-      }
+        sender: "user",
+      },
     ]);
 
-    setInputData('');
+    setInputData("");
   }
 
   return (
-   <>
-    <input value={inputData} onChange={getData} placeholder="type message" size="25" />
-    <button onClick={renderData}>Send</button>
-   </>
+    <>
+      <input
+        value={inputData}
+        onChange={getData}
+        placeholder="type message"
+        size="25"
+      />
+      <button onClick={renderData}>Send</button>
+    </>
   );
 }
