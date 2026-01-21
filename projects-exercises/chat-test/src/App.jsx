@@ -7,10 +7,12 @@ function App() {
     {
       message: "Hello robot",
       sender: "user",
+      id: crypto.randomUUID(),
     },
     {
       message: "Hi user, how can i help you",
       sender: "robot",
+      id: crypto.randomUUID(),
     },
   ]);
 
@@ -21,7 +23,7 @@ function App() {
       {messages.map((message) => {
         return (
           <>
-            <ChatMessage message={message.message} sender={message.sender} />
+            <ChatMessage message={message.message} sender={message.sender} key={message.id} />
           </>
         );
       })}

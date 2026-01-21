@@ -13,6 +13,7 @@ export function ChatInput({ messages, setMessages }) {
       {
         message: inputData,
         sender: "user",
+        id: crypto.randomUUID()
       },
     ]);
 
