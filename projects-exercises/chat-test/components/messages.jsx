@@ -1,8 +1,21 @@
 import { ChatStructure } from "./chat-structure";
+import { ChatInput } from '../components/chat-input';
+import { useEffect, useRef } from 'react';
+import './chat-structure.css';
 
-export function Messages({messages}){
+export function Messages({messages, setMessages}){
+  
+  const chatMessageRef = useRef(null);
+
+  useEffect(()=>{
+    const chatEffect = chatMessageRef;
+    
+    {chatEffect ? chatEffect.scrollTop = chatEffect.scrollHeight : ''}
+  })
+  
+
   return(
-    <>
+    <div ref={chatMessageRef} className="chatMessage">
      {messages.map((message) => {
         return (
           <>
@@ -10,6 +23,7 @@ export function Messages({messages}){
           </>
         );
       })}
-    </>
+      <ChatInput messages={messages} setMessages={setMessages} />
+    </div>
   )
 }

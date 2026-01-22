@@ -1,8 +1,37 @@
 .chatMessage{
+  margin: auto;
+  width: 500px;
+  padding: 10px 0;
+  scrollbar-width: none;
+}
+
+.inputCont{
   display: flex;
-  width: 258px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0;
-  margin: 0;
+  width: 100;
+  margin-top: 10px;
+}
+
+.input{
+  width: 100%;
+  display: flex;
+}
+
+.robot{
+ background-color: purple;
+ display: flex;
+ align-items: center;
+ margin: 0;
+ padding: 0;
+ width: fit-content;
+}
+
+.user{
+ background-color: beige;
+ display: flex;
+ align-items: center;
+ margin: 0;
+ padding: 0;
+ width: fit-content;
+ flex-direction: row-reverse;
+ margin-left: auto;
 }
