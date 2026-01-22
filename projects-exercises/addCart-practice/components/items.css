@@ -1,0 +1,24 @@
+.card{
+ border: 1px solid grey;
+ display: flex;
+ margin-bottom: 5px;
+}
+
+.cardSub h2, p, button{
+  margin: 0;
+  padding: 0;
+}
+
+.cardSub p{
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.cardSub{
+  padding: 5px 0 5px 5px;
+}
+
+button{
+  margin-top: 50px;
+  padding: 7px 14px;
+}
