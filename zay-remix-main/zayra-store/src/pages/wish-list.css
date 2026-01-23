@@ -1,0 +1,197 @@
+.wishU {
+  background-color: rgb(245, 239, 239);
+  height: 100vh;
+  padding-top: 10px;
+}
+
+.WishesSub {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.wishesButton button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  white-space: nowrap;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: clamp(16px, 2vw, 18px);
+  background-color: white;
+}
+
+.wishesButton button:hover {
+  background-color: rgb(240, 238, 238);
+  color: black;
+}
+
+.wishesButton button:active {
+  background-color: white;
+}
+
+.wishesCont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wishesCont img {
+  cursor: unset;
+}
+
+.wishesCont p {
+  font-size: clamp(16px, 2vw, 18px);
+}
+
+.emptyWishes {
+  background-color: rgb(245, 239, 239);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 99px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 200px;
+  gap: 15px;
+  visibility: hidden;
+  display: none;
+}
+
+.emptyWishes img {
+  width: clamp(80px, 2vw, 120px);
+}
+
+.emptyWishes p {
+  font-size: 30px;
+}
+
+.emptyWishes button {
+  border: none;
+  padding: 15px 25px;
+  border-radius: 5px;
+  background-color: rgb(48, 47, 47);
+  color: white;
+}
+
+h1 {
+  font-size: clamp(16px, 2vw, 20px);
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+}
+
+.wishContainer {
+  display: flex;
+  gap: 10px;
+  font-size: 27px;
+}
+
+.wishContainer img {
+  width: 30px;
+}
+
+.wishlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 650px;
+  margin: 20px 0 0 20px;
+  border-radius: 3px;
+  gap: 10px;
+}
+
+.wishCard {
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.imageDesc {
+  display: flex;
+  gap: 10px;
+}
+
+.imageDesc button {
+  border: 0;
+  border-radius: 4px;
+  background-color: rgb(199, 18, 18);
+  color: white;
+  margin-bottom: auto;
+  padding: 5px 8px;
+}
+
+.imageDesc button:hover {
+  background-color: rgb(196, 23, 23);
+}
+
+.imageDesc button:active {
+  background-color: rgb(221, 21, 21);
+}
+
+.imageContainer {
+  width: 100px;
+}
+
+.imageContainer img {
+  width: 100%;
+}
+
+.descriptionContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: auto;
+  gap: 10px;
+}
+
+.priceDesc {
+  max-width: 500px;
+}
+
+.priceDesc p {
+  color: green;
+  font-weight: 500;
+  font-size: clamp(16px, 2vw, 18px);
+}
+
+.buttonsContainer {
+  display: flex;
+  margin-left: auto;
+}
+
+.buttonsContainer button {
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 4px;
+  background-color: rgb(48, 47, 47);
+  color: white;
+}
+
+.buttonsContainer button:hover,
+.emptyWishes button:hover {
+  background-color: rgb(109, 107, 107);
+}
+
+.buttonsContainer button:active,
+.emptyWishes button:active {
+  background-color: rgb(34, 33, 33);
+}
