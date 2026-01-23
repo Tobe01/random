@@ -8,10 +8,10 @@ export function Messages({messages, setMessages}){
   const chatMessageRef = useRef(null);
 
   useEffect(()=>{
-    const chatEffect = chatMessageRef;
+    const chatEffect = chatMessageRef.current;
     
     {chatEffect ? chatEffect.scrollTop = chatEffect.scrollHeight : ''}
-  })
+  }, []);
   
 
   return(

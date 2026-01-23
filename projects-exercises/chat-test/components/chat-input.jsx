@@ -60,7 +60,7 @@ export function ChatInput({ messages, setMessages }) {
         id: crypto.randomUUID()
       },
     ])
-  }
+  };
 
   return (
     <div className="inputCont">
