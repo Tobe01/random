@@ -23,7 +23,7 @@ function App() {
       {/* Pages */}
       <Route index element={<HomePage cart={cart} />} />
       <Route path="Checkout" element={<Checkout cart={cart} />} />
-      <Route path="Orders" element={<Orders />} />
+      <Route path="Orders" element={<Orders cart={cart} />} />
       <Route path="Tracking" element={<Tracking />} />
 
       {/* route path to 404 error page */}
