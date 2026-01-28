@@ -53,7 +53,7 @@ export function Checkout({ cart, getAppData }) {
         <div className="checkout-grid">
           <OrderSummary deliveryOptions={deliveryOptions} cart={cart} getAppData={getAppData} />
 
-          <PaymentSummary paymentSummary={paymentSummary}  />
+          <PaymentSummary paymentSummary={paymentSummary} getAppData={getAppData}  />
         </div>
       </div>
     </>
