@@ -1,4 +1,4 @@
-import { it, expect, describe } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { formatMoney } from './money';
 
 describe('formatMoney', () => {
