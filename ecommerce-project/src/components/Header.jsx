@@ -14,6 +14,14 @@ export function Header({cart}) {
     });
   }
 
+  function getValue(event){
+    
+  }
+
+  function displayValue(){
+    
+  }
+
   
 
 
@@ -27,9 +35,9 @@ export function Header({cart}) {
       </div>
 
       <div className="middle-section">
-        <input className="search-bar" type="text" placeholder="Search" />
+        <input onChange={getValue} className="search-bar" type="text" placeholder="Search" />
 
-        <button className="search-button">
+        <button onClick={displayValue} className="search-button">
           <img className="search-icon" src={searchIcon} />
         </button>
       </div>

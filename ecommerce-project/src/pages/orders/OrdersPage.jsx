@@ -4,7 +4,7 @@ import { Header } from "../../components/Header";
 import { OrdersGrid } from './OrdersGrid';
 import "./OrdersPage.css";
 
-export function Orders({ cart }) {
+export function Orders({ cart, getAppData }) {
   const [orders, setOrders] = useState([]);
 
   // Fetching Data from Backend using Async/Await
@@ -32,7 +32,7 @@ export function Orders({ cart }) {
 
       <Header cart={cart} />
 
-      <OrdersGrid orders={orders} />
+      <OrdersGrid orders={orders} getAppData={getAppData} />
     </>
   );
 }

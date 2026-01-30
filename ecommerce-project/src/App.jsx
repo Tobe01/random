@@ -10,6 +10,8 @@ import { ErrorPage } from './pages/ErrorPage';
 function App() {
   const [ cart, setCart ] = useState([]);
 
+  window.axios = axios;
+
   // Fetching Data from Backend using Async/Await
   async function getAppData(){
       const response = await axios.get('/api/cart-items?expand=product')
@@ -34,7 +36,7 @@ function App() {
       {/* Pages */}
       <Route index element={<HomePage cart={cart} getAppData={getAppData} />} />
       <Route path="Checkout" element={<Checkout cart={cart} getAppData={getAppData} />} />
-      <Route path="Orders" element={<Orders cart={cart} />} />
+      <Route path="Orders" element={<Orders cart={cart} getAppData={getAppData} />} />
       <Route path="tracking/:orderId/:productId" element={<Tracking />} />
 
       {/* route path to 404 error page */}

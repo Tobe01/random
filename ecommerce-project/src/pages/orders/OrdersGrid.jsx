@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { formatMoney } from '../../../utils/money';
 import { OrdersDetailsGrid } from './OrdersDetailsGrid';
 
-export function OrdersGrid({orders}) {
+export function OrdersGrid({ orders, getAppData}) {
   return (
     <div className="orders-page">
       <div className="page-title">Your Orders</div>
@@ -29,7 +29,7 @@ export function OrdersGrid({orders}) {
                 </div>
               </div>
 
-              <OrdersDetailsGrid order={order} />
+              <OrdersDetailsGrid order={order} getAppData={getAppData} />
 
             </div>
           );

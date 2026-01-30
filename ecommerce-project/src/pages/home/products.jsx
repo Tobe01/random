@@ -17,7 +17,7 @@ export function Products({product, getAppData}) {
     setAdded(true);
     setTimeout(()=>{
       setAdded(false);
-    }, 3000)
+    }, 2000)
   }
 
   async function updateCart() {

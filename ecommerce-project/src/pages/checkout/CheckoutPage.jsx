@@ -18,14 +18,17 @@ export function Checkout({ cart, getAppData }) {
 
     getDeliveryOptions(); 
 
-    async function getPaymentSummary(){
+  }, []);
+
+  // Seperated useEffect for getPayment Function
+  useEffect(()=>{
+     async function getPaymentSummary(){
       const response = await axios.get('/api/payment-summary')
       setPaymentSummary(response.data);
     }
 
     getPaymentSummary();
-
-  }, [cart]);
+  }, [cart])
 
   // Fecting Data from Backend using Promise
   /* useEffect(() => {
